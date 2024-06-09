@@ -7,7 +7,8 @@ Created on Sun May 12 15:14:42 2024
 import numpy as np
 
 # print('Loading database... ', end='')
-data_path = './'
+data_path = '../db/'
+save_path = '../data/CH4_v2/'
 
 branch_data = np.load(data_path + 'branch_data.npy')
 nu_data = np.load(data_path + 'nu_data.npy')
@@ -46,9 +47,11 @@ EvJ_data_arr = np.array([J_min, J_max,
                          EvJ_1, EvJ_0,
                          ], dtype=object)
 
-np.save('EvJ_data.npy', EvJ_data_arr)
-np.save('J_clip_data.npy', J_clip_data)
-np.save('sigma_gRmin_data.npy', sigma_gRmin_data)
+np.save(save_path + 'nu_data.npy', nu_data)
+np.save(save_path + 'sigma_gRmin_data.npy', sigma_gRmin_data)
+np.save(save_path + 'E0_data.npy', E0_data)
+np.save(save_path + 'J_clip_data.npy', J_clip_data)
+np.save(save_path + 'EvJ_data.npy', EvJ_data_arr)
 
 
 
