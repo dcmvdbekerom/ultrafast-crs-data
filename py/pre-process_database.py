@@ -38,9 +38,10 @@ J_max_k = J_max - np.clip(delta_J, 0, None)
 J_clip = np.clip(J_data[1,:], J_min_k, J_max_k)
 J_clip_data = ((delta_J+2)*(J_max+1) + J_clip).astype(np.int32)
 
-J_arr = np.arange(J_max + 1)
-EvJ_1 = calc_EvJ_1(J_arr)
-EvJ_0 = calc_EvJ_0(J_arr)
+J_arr = np.arange(J_min, J_max + 1)
+EvJ_1, EvJ_0 = np.ones((2,J_max+1), dtype=np.float64)*np.nan
+EvJ_1[J_min:J_max+1] = calc_EvJ_1(J_arr)
+EvJ_0[J_min:J_max+1] = calc_EvJ_0(J_arr)
 
 
 EvJ_data_arr = np.array([J_min, J_max,
