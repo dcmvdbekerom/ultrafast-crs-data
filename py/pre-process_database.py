@@ -39,20 +39,23 @@ J_clip = np.clip(J_data[1,:], J_min_k, J_max_k)
 J_clip_data = ((delta_J+2)*(J_max+1) + J_clip).astype(np.int32)
 
 J_arr = np.arange(J_min, J_max + 1)
-EvJ_1, EvJ_0 = np.ones((2,J_max+1), dtype=np.float64)*np.nan
-EvJ_1[J_min:J_max+1] = calc_EvJ_1(J_arr)
-EvJ_0[J_min:J_max+1] = calc_EvJ_0(J_arr)
+# EvJ_1, EvJ_0 = np.ones((2,J_max+1), dtype=np.float64)*np.nan
+# EvJ_1[J_min:J_max+1] = calc_EvJ_1(J_arr)
+# EvJ_0[J_min:J_max+1] = calc_EvJ_0(J_arr)
 
+# EvJ_data_arr = np.array([J_min, J_max,
+#                          EvJ_1, EvJ_0,
+#                          ], dtype=object)
 
-EvJ_data_arr = np.array([J_min, J_max,
-                         EvJ_1, EvJ_0,
-                         ], dtype=object)
+EvJ_data_arr = np.ones((2, J_max+1), dtype=np.float64)*np.nan
+EvJ_data_arr[0, J_min:J_max+1] = calc_EvJ_0(J_arr)
+EvJ_data_arr[1, J_min:J_max+1] = calc_EvJ_1(J_arr)
 
+np.save(save_path + 'EvJ_data.npy', EvJ_data_arr)
 np.save(save_path + 'nu_data.npy', nu_data)
 np.save(save_path + 'sigma_gRmin_data.npy', sigma_gRmin_data)
 np.save(save_path + 'E0_data.npy', E0_data)
 np.save(save_path + 'J_clip_data.npy', J_clip_data)
-np.save(save_path + 'EvJ_data.npy', EvJ_data_arr)
 
 
 

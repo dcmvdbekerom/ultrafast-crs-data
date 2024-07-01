@@ -8,13 +8,14 @@ Created on Sun Jun  9 11:00:16 2024
 import numpy as np
 
 fnames = [
+    'EvJ_data.npy',
     'nu_data.npy',
     'sigma_gRmin_data.npy',
     'E0_data.npy',
     'J_clip_data.npy',
     ]
 
-fpath = '../data/CH4_v2'
+fpath = '../data/CH4_v2/'
 
 for fname in fnames:
     print('Compressing '+fname+'... ', end='')
