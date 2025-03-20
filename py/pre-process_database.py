@@ -7,8 +7,8 @@ Created on Sun May 12 15:14:42 2024
 import numpy as np
 
 # print('Loading database... ', end='')
-data_path = '../db/'
-save_path = '../data/CH4_v2/'
+data_path = '../db/CH4_v1/'
+save_path = '../data/CH4_v1/'
 
 branch_data = np.load(data_path + 'branch_data.npy')
 nu_data = np.load(data_path + 'nu_data.npy')
@@ -57,5 +57,5 @@ np.save(save_path + 'sigma_gRmin_data.npy', sigma_gRmin_data)
 np.save(save_path + 'E0_data.npy', E0_data)
 np.save(save_path + 'J_clip_data.npy', J_clip_data)
 
-
+print('Done!')
 

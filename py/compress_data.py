@@ -15,7 +15,7 @@ fnames = [
     'J_clip_data.npy',
     ]
 
-fpath = '../data/CH4_v2/'
+fpath = '../data/CH4_v1/'
 
 for fname in fnames:
     print('Compressing '+fname+'... ', end='')
